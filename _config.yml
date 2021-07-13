@@ -5,6 +5,7 @@ description: >
 logo: ''
 email: ''
 repository: TrainTheTrainer/TrainTheTrainer.github.io
+url: http://bebatut.fr/elixir_ttt/
 
 collections:
   posts:
