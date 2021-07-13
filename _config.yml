@@ -1,0 +1,18 @@
+# Site
+title: "ELIXIR Train the Trainer"
+description: >
+  Train the Trainer programme
+logo: ''
+email: ''
+repository: TrainTheTrainer/TrainTheTrainer.github.io
+
+collections:
+  posts:
+    permalink: /posts/:year/:month/:day/:title/
+  events:
+    permalink: /event/:path/
+    output: true
+
+plugins:
+  - jekyll-last-modified-at
+  - jekyll-redirect-from

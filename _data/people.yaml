@@ -1,0 +1,57 @@
+# List of people (alphabetical order)
+#
+# Collection names should be equal to github username,
+# if not, add github: false tag and
+# use firstname-lastname as collection name
+#
+# List of tags for people
+#
+# first-name:
+# last-name:
+# twitter:
+# website:
+# orcid:
+# affiliation:
+# country:
+# pronouns:
+# roles: leader, trainer
+#
+# Mandatory: first-name, last-name, country
+---
+
+allegravia:
+  affiliation: IBBE-CNR
+  city: Rome
+  country: Italy
+  first-name: Allegra
+  last-name: Via
+  roles:
+  - leader
+  - trainer
+bebatut:
+  affiliation: University of Freiburg
+  city: Freiburg
+  country: Germany
+  first-name: Bérénice
+  last-name: Batut
+  orcid: 0000-0001-9852-1987
+  pronouns: she/her
+  twitter: bebatut
+  website: https://research.bebatut.fr
+  roles:
+  - trainer
+kpoterlowicz:
+  country: UK
+  first-name: Krzysztof
+  last-name: Poterlowicz
+  roles:
+  - trainer
+ppalagi:
+  affiliation: SIB Swiss Institute of Bioinformatics
+  city: Lausanne
+  country: Switzerland
+  first-name: Patricia
+  last-name: Palagi
+  roles:
+  - leader
+  - trainer

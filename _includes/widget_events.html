@@ -1,0 +1,46 @@
+{% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+
+<div class="post">
+  {% for event in site.events %}
+    {% capture organisers %}
+        {% for id in event.organisers %}, {% assign name = site.data['people'][id].first-name | default: id %}{{ name }}{% endfor %}
+    {% endcapture %}
+    {% capture trainers %}
+        {% for id in event.trainers %}, {% assign name = site.data['people'][id].first-name | default: id %}{{ name }}{% endfor %}
+    {% endcapture %}
+    <div class="card">
+        {% if event.image %}
+        <div class="card-image">
+            <figure class="image">
+            <img src="{{ event.image }}" alt="{{ event.title }}">
+            </figure>
+        </div>
+        {% endif %}
+
+        <div class="card-content">
+            <div class="content">
+                <div class="title">
+                {% if event.external %}
+                    <a href="{{ event.external }}"><p>{{ event.title | escape }}</p></a>
+                {% else %}
+                    <a href="{{ event.url }}"><p>{{ event.title | escape }}</p></a>
+                {% endif %}
+                </div>
+
+                <p class="subtitle"> 
+                    From <time datetime="{{ event.starts | date: date_format }}">{{ event.starts | date: date_format }}</time> to <time datetime="{{ event.ends | date: date_format }}">{{ event.ends | date: date_format }}</time>
+                </p>
+                <p class="metadata">
+                    <ul>
+                        <li><b>Location</b>: {{ event.location }}</li>
+                        <li><b>Trainers</b>: {{ trainers | remove_first: ', ' | strip }}</li>
+                        <li><b>Organisers</b>: {{ organisers | remove_first: ', ' | strip }}</li>
+                    </ul>
+                </p>
+            
+                {{ event.excerpt }}
+            </div>
+        </div>
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,51 @@
+---
+layout: base
+---
+{% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+
+<section class="hero">
+  <div class="hero-body">
+    <h1 class="title is-1">{{ page.title }}</h1>
+
+    {% if page.layout == 'post' %}
+      {% capture authors %}
+        {% for id in page.authors %}, {% assign name = site.data['people'][id].first-name | default: id %}{{ name }}{% endfor %}
+      {% endcapture %}
+      <p class="subtitle is-5">
+          <time datetime="{{ page.date | date: date_format }}">{{ page.date | date: date_format }}</time>
+          - {{ authors | remove_first: ', ' | strip }}
+      </p>
+
+    {% elsif page.layout == 'event' %}
+      {% capture organisers %}
+        {% for id in page.organisers %}, {% assign name = site.data['people'][id].first-name | default: id %}{{ name }}{% endfor %}
+      {% endcapture %}
+      {% capture trainers %}
+        {% for id in page.trainers %}, {% assign name = site.data['people'][id].first-name | default: id %}{{ name }}{% endfor %}
+      {% endcapture %}
+      <p class="subtitle is-5">
+          From <time datetime="{{ page.starts | date: date_format }}">{{ page.starts | date: date_format }}</time> to <time datetime="{{ page.ends | date: date_format }}">{{ page.ends | date: date_format }}</time>
+      </p>
+    {% endif %}
+  </div>
+
+</section>
+
+
+<section class="section">
+  <div class="container content {{ layout.css }} {{ page.css }}">
+    {% if page.layout == 'event' %}
+    <h2>General information</h2>
+    <p class="metadata">
+      <ul>
+          <li><b>Date</b>: From <time datetime="{{ page.starts | date: date_format }}">{{ page.starts | date: date_format }}</time> to <time datetime="{{ page.ends | date: date_format }}">{{ page.ends | date: date_format }}</time></li>
+          <li><b>Location</b>: {{ page.location }}</li>
+          <li><b>Trainers</b>: {{ trainers | remove_first: ', ' | strip }}</li>
+          <li><b>Organisers</b>: {{ organisers | remove_first: ', ' | strip }}</li>
+      </ul>
+    </p>
+    {% endif %}
+    
+    {{ content }}
+  </div>
+</section>

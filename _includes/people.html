@@ -1,0 +1,50 @@
+<div class="card people-card" id="{{ username }}">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left people-card-avatar">
+        <figure class="image is-64x64">
+          <img
+            class="is-rounded"
+            src="https://avatars.githubusercontent.com/{{ username }}"
+            alt="The GitHub avatar of {{ user.name }}"
+          />
+        </figure>
+      </div>
+      <div class="media-content people-card-meta">
+        <p class="title is-4">{{ user.first-name }} {{ user.last-name }}</p>
+
+        <p class="is-6">
+          {% if user.pronouns %}
+          Pronouns: {{ user.pronouns }}<br>
+          {% endif %}
+
+          {% if user.twitter %}
+          <a class="people-card-meta-twitter" href="https://twitter.com/{{ user.twitter }}"><i class="fab fa-twitter"></i> @{{ user.twitter }}</a><br>
+          {% endif %}
+          {% if user.website %}
+          <a href="{{ user.website }}"><i class="fas fa-globe"></i></a>
+          {% endif %}
+          {% if user.github != false %}
+          <a href="https://github.com/{{ username }}"><i class="fab fa-github"></i></a>
+          {% endif %}
+          {% if user.orcid %}
+          <a href="https://orcid.org/{{ user.orcid }}"><i class="ai ai-orcid"></i></a>
+          {% endif %}
+        
+          {% if user.affiliation or user.country %}
+            <br>
+            <i class="fas fa-map-marker-alt"></i> 
+            {% assign delim = '' %}
+            {% if user.affiliation %}
+            {{ user.affiliation }}
+            {% assign delim = ', ' %}
+            {% endif %}
+            {% if user.country %}
+            {{ delim }}{{ user.country }}
+            {% endif %}
+          {% endif %}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+
+name: elixir_ttt
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - ruby
