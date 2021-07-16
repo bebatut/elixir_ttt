@@ -23,7 +23,7 @@
                 {% if event.external %}
                     <a href="{{ event.external }}"><p>{{ event.title | escape }}</p></a>
                 {% else %}
-                    <a href="{{ event.url }}"><p>{{ event.title | escape }}</p></a>
+                    <a href="{{ site.baseurl}}/{{ event.url }}"><p>{{ event.title | escape }}</p></a>
                 {% endif %}
                 </div>
 

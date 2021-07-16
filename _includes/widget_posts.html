@@ -21,7 +21,7 @@
                 {% if post.external %}
                     <a href="{{ post.external }}"><p>{{ post.title | escape }}</p></a>
                 {% else %}
-                    <a href="{{ post.url }}"><p>{{ post.title | escape }}</p></a>
+                    <a href="{{ site.baseurl}}/{{ post.url }}"><p>{{ post.title | escape }}</p></a>
                 {% endif %}
                 </div>
 
